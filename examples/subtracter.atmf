@@ -1,0 +1,12 @@
+`}<<<<`[$-]$_.
+#
+Set cell 0 to user input.
+Move to cell 6.
+Set cell 6 to user input.
+Repeat cell 6 times:
+    Move to cell 0
+    Decrement cell 0
+Move to cell 0
+Echo cell 0
+Halt
+#
