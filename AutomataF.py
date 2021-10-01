@@ -105,7 +105,7 @@ def atmf(program: str) -> None:
             elif instruction == "?": # don't reset pointer next iteration
                 reset = not reset
 
-            elif instruction == "%": # jump to position pointer
+            elif instruction == "%": # jump execution to pointer
                 index = pointer - 1
             elif instruction == "^" and pointer != index: # skip next chracter if pointer doesn't point this chracter
                 index += 1
