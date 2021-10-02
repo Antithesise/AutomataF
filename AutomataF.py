@@ -5,15 +5,15 @@ def atmf(program: str) -> None:
         return
 
     def inc(text: list[str], index: int) -> list[str]: # increment chr
-        text[index] = chr(ord(text[index]) + 1)
+        text[index] = chr((ord(text[index]) + 1) % 1114112)
         return text
 
     def dec(text: list[str], index: int) -> list[str]: # decrement chr
-        text[index] = chr(ord(text[index]) - 1)
+        text[index] = chr((ord(text[index]) - 1) % 1114112)
         return text
 
     def sqr(text: list[str], index: int) -> list[str]: # square chr
-        text[index] = chr(ord(text[index]) ** 2)
+        text[index] = chr((ord(text[index]) ** 2) % 1114112)
         return text
 
     pointer: int = 0
@@ -163,4 +163,4 @@ def atmf(program: str) -> None:
             elif instruction == "|": # set cell at pointer to user input
                 program[pointer] = input("> ")[0]
             elif instruction == "`": # set cell at pointer to ASCII chr of user input
-                program[pointer] = chr(int(input("> ")))
+                program[pointer] = chr(int(input("> ")) % 1114112)
