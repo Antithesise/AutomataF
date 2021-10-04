@@ -43,12 +43,15 @@ def atmf(program: str) -> None:
         oldprogram = program
 
         while True:
-            if index + 1 >= len(oldprogram):
-                break
-
             index += 1
 
+            if index >= len(oldprogram):
+                break
+
             instruction = oldprogram[index]
+
+            if ord(oldprogram[pointer]) < 0 or ord(oldprogram[pointer]) == 1114111:
+                program[pointer] = chr(0)
 
             if index in sindex: # if instruction is to be skipped
                 if sindex[index] > 0:
@@ -58,7 +61,6 @@ def atmf(program: str) -> None:
 
             if instruction == "\n":
                 lineno += 1
-            
             elif instruction == "#": # toggle comment
                 c = not c
             elif c: # if currently parsing comment or file name
@@ -125,7 +127,7 @@ def atmf(program: str) -> None:
             elif pointer == len(oldprogram): # if index error is to be expected
                 return print()
 
-            elif instruction == ":" or ord(oldprogram[pointer]) < 0 or ord(oldprogram[pointer]) == 1114111: # set cell at pointer to 0
+            elif instruction == ":": # set cell at pointer to 0
                 program[pointer] = chr(0)
             elif instruction == "-": # decrement cell at pointer
                 program = dec(program, pointer)
