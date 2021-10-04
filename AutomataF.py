@@ -125,7 +125,7 @@ def atmf(program: str) -> None:
             elif pointer == len(oldprogram): # if index error is to be expected
                 return print()
 
-            elif instruction == ":" or ord(oldprogram[pointer]) < 0 or ord(oldprogram[pointer]) == 1114111: # set cell to 0 at pointer
+            elif instruction == ":" or ord(oldprogram[pointer]) < 0 or ord(oldprogram[pointer]) == 1114111: # set cell at pointer to 0
                 program[pointer] = chr(0)
             elif instruction == "-": # decrement cell at pointer
                 program = dec(program, pointer)
