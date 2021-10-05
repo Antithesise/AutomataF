@@ -50,7 +50,7 @@ def atmf(program: str) -> None:
 
             instruction = oldprogram[index]
 
-            if ord(oldprogram[pointer]) < 0 or ord(oldprogram[pointer]) == 1114111:
+            if ord(oldprogram[pointer]) < 0 or ord(oldprogram[pointer]) >= 1114111:
                 program[pointer] = chr(0)
 
             if index in sindex: # if instruction is to be skipped
